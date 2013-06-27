@@ -11,6 +11,14 @@ $(document).ready(function() {
 	canvas.width = window.innerWidth;
 	canvas.height = window.innerHeight;
 	
+	context.font = "bold 16px Arial";
+	context.fillStyle = "white";
+	if (mobileDevice) {
+		context.fillText("Tap and tilt!", 5, 20);
+	} else {
+		context.fillText("Click, click, click. (Visit on an iOS device for accelerometer integration.)", 5, 20);
+	}
+	
 	context.lineCap = "round";
 	
 	var lines = [];

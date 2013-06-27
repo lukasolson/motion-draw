@@ -1,1 +1,1 @@
-Demo can be found at http://lukasolson.com/motion_draw. Tap on the screen a few times, then tilt your phone from side to side.
+[Demo](http://lukasolson.com/motion-draw) (Visit on your iOS device.) Tap on the screen a few times, then tilt your phone from side to side.
