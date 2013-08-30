@@ -12,8 +12,6 @@ $(document).ready(function() {
 	canvas.height = window.innerHeight;
 	
 	context.font = "bold 16px Arial";
-	context.fillStyle = "white";
-	
 	context.lineCap = "round";
 	
 	var lines = [];
