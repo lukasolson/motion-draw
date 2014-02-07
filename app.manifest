@@ -1,9 +1,7 @@
 CACHE MANIFEST
-# v1.0.0
+# v1.0.1
 
 CACHE:
 index.html
 app.css
-lib/hide-address-bar.js
-lib/jquery.min.js
-app.js
+motion-draw.js
