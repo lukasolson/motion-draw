@@ -10,11 +10,11 @@ function MotionDraw(canvas) {
 	this.acceleration = {x: 0, y: 0};
 	this.ballpoints = [];
 
-	canvas.onmousedown = (function (e) {
+	canvas.addEventListener("mousedown", (function (e) {
 		this.addBallpoint(e.pageX - canvas.offsetLeft, e.pageY - canvas.offsetTop);
-	}).bind(this);
+	}).bind(this));
 
-	canvas.ontouchstart = (function (e) {
+	canvas.addEventListener("touchstart", (function (e) {
 		e.preventDefault();
 		for (var i = 0; i < e.changedTouches.length; i++) {
 			this.addBallpoint(
@@ -22,17 +22,17 @@ function MotionDraw(canvas) {
 				e.changedTouches[i].pageY - canvas.offsetTop
 			);
 		}
-	}).bind(this);
+	}).bind(this));
 
-	window.ondevicemotion = (function (e) {
+	window.addEventListener("devicemotion", (function (e) {
 		this.acceleration.x = e.accelerationIncludingGravity.x;
 		this.acceleration.y = e.accelerationIncludingGravity.y;
-	}).bind(this);
+	}).bind(this));
 
-	window.onmousemove = (function (e) {
+	window.addEventListener("mousemove", (function (e) {
 		this.acceleration.x = (e.pageX - window.innerWidth / 2) / (window.innerWidth / 2);
 		this.acceleration.y = (window.innerHeight / 2 - e.pageY) / (window.innerHeight / 2);
-	}).bind(this);
+	}).bind(this));
 
 	window.requestAnimationFrame(this.moveBallpoints.bind(this));
 }
