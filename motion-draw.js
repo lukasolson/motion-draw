@@ -58,8 +58,8 @@ MotionDraw.prototype = {
 
 	moveBallpoint: function (ballpoint) {
 		var x = ballpoint.x, y = ballpoint.y;
-		ballpoint.x += this.acceleration.x;
-		ballpoint.y -= this.acceleration.y;
+		ballpoint.x = Math.max(this.context.lineWidth / 2, Math.min(this.canvas.width - this.context.lineWidth / 2, ballpoint.x + this.acceleration.x));
+		ballpoint.y = Math.max(this.context.lineWidth / 2, Math.min(this.canvas.height - this.context.lineWidth / 2, ballpoint.y - this.acceleration.y));
 
 		this.drawLine(x, y, ballpoint.x, ballpoint.y, ballpoint.color);
 	},
