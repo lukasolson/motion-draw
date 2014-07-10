@@ -1,7 +1,8 @@
 CACHE MANIFEST
-# v1.0.1
+# v1.0.3
 
 CACHE:
 index.html
 app.css
 motion-draw.js
+icon.png

@@ -46,7 +46,7 @@ MotionDraw.randomPastel = function () {
 
 MotionDraw.prototype = {
 	addBallpoint: function (x, y) {
-		this.ballpoints.push({x: x, y: y, velocity: {x: 0, y: 0}, color: MotionDraw.randomPastel()});
+		this.ballpoints.push({x: x, y: y, color: MotionDraw.randomPastel()});
 	},
 
 	moveBallpoints: function () {
@@ -57,30 +57,9 @@ MotionDraw.prototype = {
 	},
 
 	moveBallpoint: function (ballpoint) {
-		ballpoint.velocity.x += this.acceleration.x * 48 / 1000;
-		ballpoint.velocity.y -= this.acceleration.y * 48 / 1000;
-
 		var x = ballpoint.x, y = ballpoint.y;
-		ballpoint.x += ballpoint.velocity.x;
-		ballpoint.y += ballpoint.velocity.y;
-
-		if (ballpoint.x < 0 || ballpoint.x > this.canvas.width) {
-			ballpoint.velocity.x *= -0.75;
-			if (ballpoint.x < 0) {
-				ballpoint.x = -ballpoint.x;
-			} else {
-				ballpoint.x += this.canvas.width - ballpoint.x;
-			}
-		}
-
-		if (ballpoint.y < 0 || ballpoint.y > this.canvas.height) {
-			ballpoint.velocity.y *= -0.75;
-			if (ballpoint.y < 0) {
-				ballpoint.y = -ballpoint.y;
-			} else {
-				ballpoint.y += this.canvas.height - ballpoint.y;
-			}
-		}
+		ballpoint.x += this.acceleration.x;
+		ballpoint.y -= this.acceleration.y;
 
 		this.drawLine(x, y, ballpoint.x, ballpoint.y, ballpoint.color);
 	},
